@@ -1,50 +1,38 @@
-﻿namespace zadanie_8;
+﻿using static zadanie_8.Tools;
+using static zadanie_8.ArraySearch;
+
+namespace zadanie_8;
 
 internal class Program
 {
-    private static List<int> StringToIntList(string sLiczby)
+    public static void ArraySearchMenu()
     {
-        List<int> iLiczby = new List<int>();
-        string[] arrLiczby = sLiczby.Split(",");
-        for (int index = 0; index < arrLiczby.Length; index++)
-        {
-            string liczba = arrLiczby[index];
-            try
-            {
-                iLiczby.Add(int.Parse(liczba));
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Uwaga: element znajdujący się na pozycji \"{0}\": {1} nie jest liczbą",
-                    index + 1, liczba);
-            }
-        }
-
-        return iLiczby;
-    }
-    public static void zadanie_8_2_1()
-    {
+        Console.WriteLine("1. Znajdź największą liczbę\n" +
+                          "2. Znajdź najmniejszą liczbę\n" +
+                          "3. Znajdź największą liczbę i wyświetl ile razy wystąpiła\n" +
+                          "4. Znajdź najmniejszą liczbę i wyświetl ile razy wystąpiła\n" +
+                          "5. Znajdź drugą co do wielkości największą liczbę\n" +
+                          "6. Znajdź drugą co do wielkości najmniejszą liczbę\n" +
+                          "7. Znajdź ile razy wystąpiła druga co do wielkości największa liczba\n" +
+                          "8. Znajdź ile razy wystąpiła druga co do wielkości najmniejsza liczba");
+        int task = int.Parse(Console.ReadLine());
         Console.WriteLine("Podaj kilka liczb całkowitych oddzielonych przecinkami:");
         string? sLiczby = Console.ReadLine();
         if (sLiczby?.Length != 0 && sLiczby != null)
         {
-            List<int> arrLiczby = StringToIntList(sLiczby);
-            Console.WriteLine("Największa liczba to: {0}", arrLiczby.Max());
-        }
-        else
-        {
-            Console.WriteLine("Nie podano liczb");
-        }
-    }
-    
-    public static void zadanie_8_2_2()
-    {
-        Console.WriteLine("Podaj kilka liczb całkowitych oddzielonych przecinkami:");
-        string? sLiczby = Console.ReadLine();
-        if (sLiczby?.Length != 0 && sLiczby != null)
-        {
-            List<int> arrLiczby = StringToIntList(sLiczby);
-            Console.WriteLine("Najmniejsza liczba to: {0}", arrLiczby.Min());
+            List<int> arrLiczby = Tools.StringToIntList(sLiczby);
+            switch (task)
+            {
+                case 1:
+                    MinMax(arrLiczby, "max");
+                    break;
+                case 2:
+                    MinMax(arrLiczby, "min");
+                    break;
+                default:
+                    Console.WriteLine("Wybrano nieprawidłowy element");
+                    break;
+            }
         }
         else
         {
@@ -52,8 +40,57 @@ internal class Program
         }
     }
 
+    public static void ArrayElementsProcessingMenu()
+    {
+        
+    }
+    public static void ArrayElementsProcessingWithGivenValuesMenu()
+    {
+        
+    }
+    public static void ArrayElementsProcessingWithGivenIndexesMenu()
+    {
+        
+    }
+
+    public static void MiscellaneousMenu()
+    {
+        
+    }
+    public static void TaskTypeRoute(int typeSelection)
+    {
+        switch (typeSelection)
+        {
+            case 2:
+                ArraySearchMenu();
+                break;
+            case 3:
+                ArrayElementsProcessingMenu();
+                break;
+            case 4:
+                ArrayElementsProcessingWithGivenValuesMenu();
+                break;
+            case 5:
+                ArrayElementsProcessingWithGivenIndexesMenu();
+                break;
+            case 6:
+                MiscellaneousMenu();
+                break;
+            default:
+                Console.WriteLine("Wybrano nieprawidłowy element");
+                break;
+        }
+    }
     public static void Main(string[] args)
     {
-        zadanie_8_2_1();
+        Console.WriteLine("Zadanie 8");
+        Console.WriteLine("Wybierz typ zadania z listy.");
+        Console.WriteLine("2. Wyszukiwanie w tablicy\n" +
+                          "3. Przetwarzanie elementów tablicy\n" +
+                          "4. Przetwarzanie elementów tablicy o zadanych wartościach\n" +
+                          "5. Przetwarzanie elementów tablicy o zadanych indeksach\n" +
+                          "6. Różne");
+        int type = int.Parse(Console.ReadLine());
+        TaskTypeRoute(type);
     }
 }
