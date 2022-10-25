@@ -15,4 +15,11 @@ internal class ArrayElementsProcessing
         doubleList.ForEach(current => addedList.Add(current + value));
         Console.WriteLine(String.Join(", ", addedList));
     }
+    
+    public static void MultiplyValues(List<double> doubleList, double value)
+    {
+        List<double> multipliedList = new List<double>();
+        doubleList.ForEach(current => multipliedList.Add(current * value));
+        Console.WriteLine(String.Join(", ", multipliedList));
+    }
 }

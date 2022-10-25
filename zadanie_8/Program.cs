@@ -92,6 +92,9 @@ internal class Program
                     case 3:
                         AddValues(arrLiczby, 1);
                         break;
+                    case 4:
+                        MultiplyValues(arrLiczby, 2);
+                        break;
                     default:
                         Console.WriteLine("Wybrano nieprawidłowy element");
                         break;
