@@ -15,29 +15,37 @@ internal class Program
                           "6. Znajdź drugą co do wielkości najmniejszą liczbę\n" +
                           "7. Znajdź ile razy wystąpiła druga co do wielkości największa liczba\n" +
                           "8. Znajdź ile razy wystąpiła druga co do wielkości najmniejsza liczba");
-        int task = int.Parse(Console.ReadLine());
-        Console.WriteLine("Podaj kilka liczb całkowitych oddzielonych przecinkami:");
-        string? sLiczby = Console.ReadLine();
-        if (sLiczby?.Length != 0 && sLiczby != null)
+        int task;
+        if (int.TryParse(Console.ReadLine(), out task))
         {
-            List<int> arrLiczby = Tools.StringToIntList(sLiczby);
-            switch (task)
+            Console.WriteLine("Podaj kilka liczb całkowitych oddzielonych przecinkami:");
+            string? sLiczby = Console.ReadLine();
+            if (sLiczby?.Length != 0 && sLiczby != null)
             {
-                case 1:
-                    MinMax(arrLiczby, "max");
-                    break;
-                case 2:
-                    MinMax(arrLiczby, "min");
-                    break;
-                default:
-                    Console.WriteLine("Wybrano nieprawidłowy element");
-                    break;
+                List<int> arrLiczby = StringToIntList(sLiczby);
+                switch (task)
+                {
+                    case 1:
+                        MinMax(arrLiczby, "max");
+                        break;
+                    case 2:
+                        MinMax(arrLiczby, "min");
+                        break;
+                    default:
+                        Console.WriteLine("Wybrano nieprawidłowy element");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nie podano liczb");
             }
         }
         else
         {
-            Console.WriteLine("Nie podano liczb");
+            Console.WriteLine("Wybrano nieprawidłowy element");
         }
+        
     }
 
     public static void ArrayElementsProcessingMenu()
@@ -90,7 +98,14 @@ internal class Program
                           "4. Przetwarzanie elementów tablicy o zadanych wartościach\n" +
                           "5. Przetwarzanie elementów tablicy o zadanych indeksach\n" +
                           "6. Różne");
-        int type = int.Parse(Console.ReadLine());
-        TaskTypeRoute(type);
+        int type;
+        if (int.TryParse(Console.ReadLine(), out type))
+        {
+            TaskTypeRoute(type);
+        }
+        else
+        {
+            Console.WriteLine("Wybrano nieprawidłowy element");
+        }
     }
 }
