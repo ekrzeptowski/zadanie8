@@ -31,6 +31,12 @@ internal class Program
                     case 2:
                         MinMax(arrLiczby, "min");
                         break;
+                    case 3:
+                        MinMaxAndOccurence(arrLiczby, "max");
+                        break;
+                    case 4:
+                        MinMaxAndOccurence(arrLiczby, "min");
+                        break;
                     default:
                         Console.WriteLine("Wybrano nieprawidłowy element");
                         break;

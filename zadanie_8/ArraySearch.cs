@@ -15,5 +15,22 @@ internal class ArraySearch
             }
             
     }
-
+    
+    public static void MinMaxAndOccurence(List<int> intList,string type)
+    {
+        switch (type)
+        {
+            case "max":
+                int max = intList.Max();
+                int maxCount = intList.Count(current => current == max);
+                Console.WriteLine("Największa liczba to: {0}. Liczba wystąpień: {1}", max, maxCount);
+                break;
+            case "min":
+                int min = intList.Min();
+                int minCount = intList.Count(current => current == min);
+                Console.WriteLine("Najmniejsza liczba to: {0}. Liczba wystąpień: {1}", min, minCount);
+                break;
+        }
+            
+    }
 }
