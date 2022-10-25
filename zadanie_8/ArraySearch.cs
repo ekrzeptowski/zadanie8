@@ -49,4 +49,25 @@ internal class ArraySearch
         }
             
     }
+    
+    public static void SecondValueOccurence(List<int> intList,string type)
+    {
+        switch (type)
+        {
+            case "max":
+                List<int> sortedListMax = intList.Distinct().OrderByDescending(number => number).ToList();
+                int max = sortedListMax.Count > 1 ? sortedListMax[1] : sortedListMax[0];
+                int maxCount = intList.Count(current => current == max);
+                Console.WriteLine("Druga największa liczba to: {0}. Liczba wystąpień: {1}", max, maxCount);
+                break;
+            case "min":
+                List<int> sortedListMin = intList.Distinct().OrderBy(number => number).ToList();
+                int min = sortedListMin.Count > 1 ? sortedListMin[1] : sortedListMin[0];
+                int minCount = intList.Count(current => current == min);
+                Console.WriteLine("Druga najmniejsza liczba to: {0}. Liczba wystąpień: {1}", min, minCount);
+                break;
+        }
+            
+    }
+    
 }

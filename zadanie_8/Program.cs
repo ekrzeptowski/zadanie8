@@ -43,6 +43,12 @@ internal class Program
                     case 6:
                         SecondValue(arrLiczby, "min");
                         break;
+                    case 7:
+                        SecondValueOccurence(arrLiczby, "max");
+                        break;
+                    case 8:
+                        SecondValueOccurence(arrLiczby, "min");
+                        break;
                     default:
                         Console.WriteLine("Wybrano nieprawidłowy element");
                         break;
