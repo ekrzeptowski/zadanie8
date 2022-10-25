@@ -33,4 +33,20 @@ internal class ArraySearch
         }
             
     }
+    
+    public static void SecondValue(List<int> intList,string type)
+    {
+        switch (type)
+        {
+            case "max":
+                List<int> sortedListMax = intList.Distinct().OrderByDescending(number => number).ToList();
+                Console.WriteLine("Druga największa liczba to: {0}", sortedListMax.Count > 1 ? sortedListMax[1] : sortedListMax[0]);
+                break;
+            case "min":
+                List<int> sortedListMin = intList.Distinct().OrderBy(number => number).ToList();
+                Console.WriteLine("Druga najmniejsza liczba to: {0}", sortedListMin.Count > 1 ? sortedListMin[1] : sortedListMin[0]);
+                break;
+        }
+            
+    }
 }
