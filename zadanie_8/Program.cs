@@ -89,6 +89,9 @@ internal class Program
                     case 2:
                         PowValues(arrLiczby, 3);
                         break;
+                    case 3:
+                        AddValues(arrLiczby, 1);
+                        break;
                     default:
                         Console.WriteLine("Wybrano nieprawidłowy element");
                         break;
