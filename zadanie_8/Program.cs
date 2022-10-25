@@ -1,5 +1,6 @@
 ﻿using static zadanie_8.Tools;
 using static zadanie_8.ArraySearch;
+using static zadanie_8.ArrayElementsProcessing;
 
 namespace zadanie_8;
 
@@ -68,7 +69,40 @@ internal class Program
 
     public static void ArrayElementsProcessingMenu()
     {
-        
+        Console.WriteLine("1. Podnieś liczby do kwadratu\n" +
+                          "2. Podnieś do trzeciej potęgi\n" +
+                          "3. Dodaj 1 do każdej liczby\n" +
+                          "4. Pomnóż każdą liczbę 2 razy");
+                          int task;
+        if (int.TryParse(Console.ReadLine(), out task))
+        {
+            Console.WriteLine("Podaj kilka liczb rzeczywistych oddzielonych przecinkami:");
+            string? sLiczby = Console.ReadLine();
+            if (sLiczby?.Length != 0 && sLiczby != null)
+            {
+                List<double> arrLiczby = StringToDoubleList(sLiczby);
+                switch (task)
+                {
+                    case 1:
+                        PowValues(arrLiczby, 2);
+                        break;
+                    case 2:
+                        PowValues(arrLiczby, 3);
+                        break;
+                    default:
+                        Console.WriteLine("Wybrano nieprawidłowy element");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Nie podano liczb");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Wybrano nieprawidłowy element");
+        }
     }
     public static void ArrayElementsProcessingWithGivenValuesMenu()
     {

@@ -22,4 +22,25 @@ internal class Tools
 
         return iLiczby;
     }
+    
+    public static List<double> StringToDoubleList(string sLiczby)
+    {
+        List<double> iLiczby = new List<double>();
+        string[] arrLiczby = sLiczby.Split(",");
+        for (int index = 0; index < arrLiczby.Length; index++)
+        {
+            string liczba = arrLiczby[index];
+            try
+            {
+                iLiczby.Add(double.Parse(liczba));
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Uwaga: element znajdujący się na pozycji \"{0}\": {1} nie jest liczbą",
+                    index + 1, liczba);
+            }
+        }
+
+        return iLiczby;
+    }
 }
